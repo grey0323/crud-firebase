@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Task } from './../../data-access/task.service';
+import { Component, effect, input, } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -9,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class TableComponent {
 
+  tasks = input.required<Task[]>();
+
+  constructor() {
+    
+  }
 }

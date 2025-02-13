@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TableComponent } from '../../iu/table/table.component';
 import { RouterLink } from '@angular/router';
+import { TaskService } from '../../data-access/task.service';
 
 @Component({
   selector: 'app-task-list',
@@ -10,5 +11,7 @@ import { RouterLink } from '@angular/router';
   styles: ``
 })
 export default class TaskListComponent {
+
+ Task = inject(TaskService).getTasks
 
 }
