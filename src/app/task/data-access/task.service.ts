@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, getDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {toSignal} from '@angular/core/rxjs-interop'
 
@@ -23,6 +23,11 @@ export class TaskService {
 
   })
 
+  getTask(id:string){
+    const docRef = doc(this._colection, id)
+    return getDoc(docRef);
+
+  }
 
 
   create(Task:TaskCreate){
