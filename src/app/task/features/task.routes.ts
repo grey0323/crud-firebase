@@ -13,6 +13,10 @@ export default [
     {
         path:'edit/:id',
         loadComponent:()=>import('./task-form/task-form.component')
+    },
+    {
+        path:'delete/:id',
+        loadComponent:()=>import('./task-delete/task-delete.component')
     }
 
     

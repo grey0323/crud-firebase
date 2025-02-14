@@ -60,19 +60,27 @@ export default class TaskFormComponent {
        completed: !!completed
 
       }
-      
-      await this._taskServices.create(task)
-      console.log("Tarea creada correctamente")
-      this._route.navigateByUrl('task')
+      const id= this.id()
+      if(id){
+        await this._taskServices.update(task, id)
+        this._route.navigateByUrl('task')
+
+      }else{
+        await this._taskServices.create(task)
+        this._route.navigateByUrl('task')
+
+      }
+    
 
     }catch(error){
 
-      console.log("No sirve")
+      console.log("Ocurrio un error")
 
     }finally{
 
       this.sing.set(false)
     }
   }
+
 
 }
